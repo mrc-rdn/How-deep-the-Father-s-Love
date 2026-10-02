@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>How Deep the Father's Love for Us</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top, #343434 0%, #171717 45%, #080808 100%);
+      color: #f5f1e8;
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: rgba(255, 220, 150, 0.08);
+      filter: blur(100px);
+      border-radius: 50%;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .cross {
+      font-size: 70px;
+      font-weight: 300;
+      color: #d8b77c;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 12px;
+      color: #b9aa91;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 82px);
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      color: #aaa39a;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #8f877b;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .scroll span {
+      display: block;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    /* -------------------------
+       LYRICS
+    ------------------------- */
+
+    .lyrics-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 100px 25px;
+    }
+
+    .verse {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0;
+    }
+
+    .verse-inner {
+      width: 100%;
+      position: relative;
+      padding-left: 70px;
+    }
+
+    .verse-number {
+      position: absolute;
+      left: 0;
+      top: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: #a58d63;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .verse h2 {
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: 400;
+      color: #c6bda9;
+      margin-bottom: 35px;
+    }
+
+    .lyrics {
+      font-size: clamp(24px, 4vw, 38px);
+      line-height: 1.65;
+      font-weight: 400;
+      color: #f4efe5;
+    }
+
+    .lyrics-line {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .highlight {
+      color: #d8b77c;
+    }
+
+    /* -------------------------
+       DIVIDER
+    ------------------------- */
+
+    .divider {
+      width: 70px;
+      height: 1px;
+      background: #806d4c;
+      margin: 0 auto;
+      opacity: 0.6;
+    }
+
+    /* -------------------------
+       END
+    ------------------------- */
+
+    .ending {
+      min-height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .ending-content {
+      max-width: 750px;
+    }
+
+    .ending-cross {
+      font-size: 55px;
+      color: #d8b77c;
+      margin-bottom: 30px;
+    }
+
+    .ending h2 {
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 25px;
+    }
+
+    .ending p {
+      color: #a9a196;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      color: #68635c;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* -------------------------
+       MOBILE
+    ------------------------- */
+
+    @media (max-width: 600px) {
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .cross {
+        font-size: 55px;
+      }
+
+      .lyrics-container {
+        padding: 50px 20px;
+      }
+
+      .verse {
+        min-height: auto;
+        padding: 100px 0;
+      }
+
+      .verse-inner {
+        padding-left: 35px;
+      }
+
+      .verse-number {
+        font-size: 9px;
+      }
+
+      .lyrics {
+        font-size: 23px;
+        line-height: 1.65;
+      }
+
+      .verse h2 {
+        font-size: 11px;
+        letter-spacing: 3px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="cross">✝</div>
+
+      <div class="eyebrow">
+        Worship • Reflection • Grace
+      </div>
+
+      <h1>
+        How Deep the<br>
+        Father's Love for Us
+      </h1>
+
+      <p>
+        A song of the Father's love, Christ's sacrifice, and redemption.
+      </p>
+
+    </div>
+
+    <div class="scroll">
+      Scroll to read
+      <span>↓</span>
+    </div>
+
+  </section>
+
+
+  <!-- LYRICS -->
+
+  <main class="lyrics-container">
+
+    <!-- VERSE 1 -->
+
+    <section class="verse">
+
+      <div class="verse-inner">
+
+        <div class="verse-number">
+          VERSE 01
+        </div>
+
+        <h2>
+          How deep the Father's love
+        </h2>
+
+        <div class="lyrics">
+
+          <span class="lyrics-line">
+            How deep the Father's love for us,
+          </span>
+
+          <span class="lyrics-line">
+            How vast beyond all measure,
+          </span>
+
+          <span class="lyrics-line">
+            That He should give His only Son
+          </span>
+
+          <span class="lyrics-line">
+            To make a wretch His treasure.
+          </span>
+
+          <br>
+
+          <span class="lyrics-line">
+            How great the pain of searing loss –
+          </span>
+
+          <span class="lyrics-line">
+            The Father turns His face away,
+          </span>
+
+          <span class="lyrics-line">
+            As wounds which mar the Chosen One
+          </span>
+
+          <span class="lyrics-line">
+            Bring many sons to glory.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <div class="divider"></div>
+
+
+    <!-- VERSE 2 -->
+
+    <section class="verse">
+
+      <div class="verse-inner">
+
+        <div class="verse-number">
+          VERSE 02
+        </div>
+
+        <h2>
+          Behold the man upon a cross
+        </h2>
+
+        <div class="lyrics">
+
+          <span class="lyrics-line">
+            Behold the man upon a cross,
+          </span>
+
+          <span class="lyrics-line">
+            My sin upon His shoulders;
+          </span>
+
+          <span class="lyrics-line">
+            Ashamed, I hear my mocking voice
+          </span>
+
+          <span class="lyrics-line">
+            Call out among the scoffers.
+          </span>
+
+          <br>
+
+          <span class="lyrics-line">
+            It was my sin that held Him there
+          </span>
+
+          <span class="lyrics-line">
+            Until it was accomplished;
+          </span>
+
+          <span class="lyrics-line">
+            His dying breath has brought me life –
+          </span>
+
+          <span class="lyrics-line highlight">
+            I know that it is finished.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <div class="divider"></div>
+
+
+    <!-- VERSE 3 -->
+
+    <section class="verse">
+
+      <div class="verse-inner">
+
+        <div class="verse-number">
+          VERSE 03
+        </div>
+
+        <h2>
+          His death and resurrection
+        </h2>
+
+        <div class="lyrics">
+
+          <span class="lyrics-line">
+            I will not boast in anything,
+          </span>
+
+          <span class="lyrics-line">
+            No gifts, no power, no wisdom;
+          </span>
+
+          <span class="lyrics-line">
+            But I will boast in Jesus Christ,
+          </span>
+
+          <span class="lyrics-line">
+            His death and resurrection.
+          </span>
+
+          <br>
+
+          <span class="lyrics-line">
+            Why should I gain from His reward?
+          </span>
+
+          <span class="lyrics-line">
+            I cannot give an answer;
+          </span>
+
+          <span class="lyrics-line">
+            But this I know with all my heart –
+          </span>
+
+          <span class="lyrics-line highlight">
+            His wounds have paid my ransom.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ENDING
+
+  <section class="ending">
+
+    <div class="ending-content">
+
+      <div class="ending-cross">
+        ✝
+      </div>
+
+      <h2>
+        His wounds have paid my ransom.
+      </h2>
+
+      <p>
+        SOLI DEO GLORIA
+      </p>
+
+    </div>
+
+  </section> -->
+
+
+  <footer>
+    HOW DEEP THE FATHER'S LOVE FOR US
+  </footer>
+
+</body>
+</html>
